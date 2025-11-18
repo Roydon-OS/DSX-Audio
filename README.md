@@ -23,21 +23,20 @@ This is the official website for DSX Audio, showcasing professional audio soluti
 ## 📁 Folder Structure
 
 DSX-Audio/
-├─ index.html # Main website page
-├─ style.css # Website styles
-├─ script.js # Carousel functionality
-├─ images/ # Hero image and favicon
-│ └─ DSX-Fav.png
-├─ our-services/ # Images for service cards
-│ ├─ image1.jpg
-│ ├─ image2.jpg
-│ └─ image3.png
-└─ our-work/ # Images for gallery
-├─ image1.png
-├─ image2.png
-└─ ...
+-index.html # Main website page
+-style.css # Website styles
+-script.js # Carousel functionality
+-images/ # Hero image and favicon
+--DSX-Fav.png
+-our-services/ # Images for service cards
+--image1.jpg
+--image2.jpg
+--image3.png
+-our-work/ # Images for gallery
+-image1.png
+-image2.png
 
----
+- ***
 
 ## ⚡ Installation / Local Development
 
