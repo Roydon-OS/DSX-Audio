@@ -3,139 +3,315 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DSX Audio – Custom Event Sound Systems</title>
-    <link rel="stylesheet" href="style.css" />
-
-    <!-- Font Awesome CDN for social icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    <title>DSX Audio - Professional Event Sound Systems</title>
+    <meta
+      name="description"
+      content="DSX Audio specializes in professional speaker systems for indoor and outdoor events, subwoofers, and custom car audio installations."
     />
-    <!-- Favicon -->
-    <link rel="icon" href="images/DSX-Fav.png" type="image/png" />
-    <link rel="shortcut icon" href="images/DSX-Fav.png" type="image/png" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <!-- HEADER / NAVIGATION -->
-    <header class="site-header">
-      <div class="container">
-        <div class="logo">DSX Audio</div>
-        <nav class="site-nav">
-          <a href="#hero">Home</a>
-          <a href="#services">Services</a>
-          <a href="#gallery">Our Work</a>
-          <a href="#contact">Contact</a>
-        </nav>
+    <!-- Fixed Navigation Header -->
+    <header class="dark-header" id="header">
+      <div class="logo">
+        <h1 class="logo-text">DSX AUDIO</h1>
       </div>
+      <nav class="dark-nav" id="mainNav">
+        <a href="#home" class="dark-nav-link active" data-target="home">Home</a>
+        <a href="#services" class="dark-nav-link" data-target="services"
+          >Services</a
+        >
+        <a href="#gallery" class="dark-nav-link" data-target="gallery"
+          >Gallery</a
+        >
+        <a href="#contact" class="dark-nav-link" data-target="contact"
+          >Contact</a
+        >
+      </nav>
+      <button
+        class="mobile-menu-toggle"
+        id="mobileMenuToggle"
+        aria-label="Toggle menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="hero" id="hero">
-      <div class="hero-overlay">
-        <h1>Custom Sound Systems for Your Events</h1>
-        <p>
-          Professional audio for parties, concerts, corporate events, and
-          private functions.
+    <!-- Hero Section with 3D Spline Integration -->
+    <section id="home" class="hero-section">
+      <div class="hero-content">
+        <div class="hero-left animate-on-scroll">
+          <h2 class="display-huge">PROFESSIONAL SOUND SYSTEMS</h2>
+          <p class="body-large hero-description">
+            Premium audio solutions for indoor and outdoor events. Delivering
+            crystal-clear sound with powerful speakers and subwoofers.
+          </p>
+          <div class="hero-buttons">
+            <a href="#contact" class="btn-primary">Get a Quote</a>
+            <a href="#services" class="btn-secondary">Our Services</a>
+          </div>
+        </div>
+        <div class="hero-right">
+          <div class="audio-visual-container">
+            <div class="sound-wave">
+              <div class="wave-bar"></div>
+              <div class="wave-bar"></div>
+              <div class="wave-bar"></div>
+              <div class="wave-bar"></div>
+              <div class="wave-bar"></div>
+              <div class="wave-bar"></div>
+              <div class="wave-bar"></div>
+              <div class="wave-bar"></div>
+            </div>
+            <div class="glow-orb"></div>
+            <div class="speaker-rings">
+              <div class="ring ring-1"></div>
+              <div class="ring ring-2"></div>
+              <div class="ring ring-3"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+      <div class="section-container">
+        <h2 class="display-large section-title animate-on-scroll">
+          OUR SERVICES
+        </h2>
+        <p class="body-medium section-subtitle animate-on-scroll">
+          Professional audio equipment for every occasion
         </p>
-        <a href="#contact" class="btn-primary">Contact Us</a>
+
+        <div class="services-grid">
+          <!-- Event Speakers -->
+          <div class="service-card animate-on-scroll">
+            <div class="service-image-wrapper">
+              <img
+                src="https://images.unsplash.com/photo-1609702847389-b8aec1b0b929?w=50&q=10"
+                data-src="https://images.unsplash.com/photo-1609702847389-b8aec1b0b929?w=800&q=80"
+                alt="Professional Event Speakers"
+                class="service-image lazy-load"
+              />
+            </div>
+            <div class="service-content">
+              <h3 class="heading-2">Event Speakers</h3>
+              <p class="body-medium">
+                High-powered speaker systems designed for large crowds and
+                open-air venues. Crystal-clear audio delivery with maximum
+                coverage.
+              </p>
+              <ul class="service-features">
+                <li>Indoor event setups</li>
+                <li>Outdoor concerts</li>
+                <li>Corporate events</li>
+                <li>Festival sound systems</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Subwoofers -->
+          <div class="service-card animate-on-scroll">
+            <div class="service-image-wrapper">
+              <img
+                src="https://images.unsplash.com/photo-1703528696307-c9008a679141?w=50&q=10"
+                data-src="https://images.unsplash.com/photo-1703528696307-c9008a679141?w=800&q=80"
+                alt="Professional Subwoofers"
+                class="service-image lazy-load"
+              />
+            </div>
+            <div class="service-content">
+              <h3 class="heading-2">Subwoofers</h3>
+              <p class="body-medium">
+                Powerful bass systems that deliver deep, resonant low-frequency
+                sound. Perfect for adding depth and impact to any event.
+              </p>
+              <ul class="service-features">
+                <li>Deep bass response</li>
+                <li>High-power handling</li>
+                <li>Array configurations</li>
+                <li>Custom tuning available</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Car Audio -->
+          <div class="service-card animate-on-scroll">
+            <div class="service-image-wrapper">
+              <img
+                src="https://images.unsplash.com/photo-1520444451380-ebe0f7b9cfd5?w=50&q=10"
+                data-src="https://images.unsplash.com/photo-1520444451380-ebe0f7b9cfd5?w=800&q=80"
+                alt="Car Audio Systems"
+                class="service-image lazy-load"
+              />
+            </div>
+            <div class="service-content">
+              <h3 class="heading-2">Car Audio</h3>
+              <p class="body-medium">
+                Custom car audio installations on special request. Premium sound
+                systems designed specifically for your vehicle.
+              </p>
+              <ul class="service-features">
+                <li>Custom installations</li>
+                <li>Premium components</li>
+                <li>Expert tuning</li>
+                <li>Special request only</li>
+              </ul>
+              <div class="service-badge">By Request</div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- SERVICES SECTION -->
-    <section class="services" id="services">
-      <h2>Our Services</h2>
-
-      <div class="service-list">
-        <div class="service-card" id="service1">
-          <h3>Event Sound Systems</h3>
-          <p>Professional sound systems tailored for any event size.</p>
-        </div>
-
-        <div class="service-card" id="service2">
-          <h3>Audio Consultation</h3>
-          <p>Expert planning and on-site optimization for your event.</p>
-        </div>
-
-        <div class="service-card" id="service3">
-          <h3>Equipment Rental</h3>
-          <p>High-quality audio gear available for short-term rental.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- GALLERY SECTION -->
-    <section class="gallery" id="gallery">
-      <h2>Our Work</h2>
-
-      <div class="carousel">
-        <button class="carousel-btn" id="prev">❮</button>
-        <img
-          id="carousel-image"
-          src=""
-          alt="Gallery Image"
-          class="lazy-image"
-        />
-        <button class="carousel-btn" id="next">❯</button>
-      </div>
-    </section>
-
-    <!-- CONTACT SECTION -->
-    <section class="contact" id="contact">
-      <h2>Contact Us</h2>
-
-      <div class="contact-box">
-        <p><strong>Owner:</strong> Cain Duyts</p>
-        <p>
-          <strong>Phone:</strong>
-          <a href="tel:+27842570551">+27 (84) 257-0551</a>
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+      <div class="section-container">
+        <h2 class="display-large section-title animate-on-scroll">GALLERY</h2>
+        <p class="body-medium section-subtitle animate-on-scroll">
+          Our equipment in action
         </p>
-        <p>
-          <strong>Email:</strong>
-          <a href="mailto:cainduyts@gmail.com">cainduyts@gmail.com</a>
-        </p>
-        <a href="mailto:cainduyts@gmail.com" class="btn-primary"
-          >Send a Message</a
-        >
 
-        <!-- Social Media Links -->
-        <div class="social-links">
-          <a
-            href="https://www.facebook.com/cain.duyts"
-            target="_blank"
-            aria-label="Facebook"
-          >
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <a
-            href="https://www.instagram.com/deep_bass_king"
-            target="_blank"
-            aria-label="Instagram"
-          >
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/cain-duyts-33541057"
-            target="_blank"
-            aria-label="LinkedIn"
-          >
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-          <a
-            href="https://www.youtube.com/@cainduyts1624"
-            target="_blank"
-            aria-label="YouTube"
-          >
-            <i class="fab fa-youtube"></i>
-          </a>
+        <div class="gallery-grid">
+          <div class="gallery-item animate-on-scroll">
+            <img
+              src="https://images.unsplash.com/photo-1595432541891-a461100d3054?w=50&q=10"
+              data-src="https://images.unsplash.com/photo-1595432541891-a461100d3054?w=800&q=80"
+              alt="Professional floor-standing speakers"
+              class="gallery-image lazy-load"
+            />
+            <div class="gallery-overlay">
+              <p class="body-medium">Professional Floor Speakers</p>
+            </div>
+          </div>
+
+          <div class="gallery-item animate-on-scroll">
+            <img
+              src="https://images.pexels.com/photos/34784358/pexels-photo-34784358.jpeg?w=50&q=10"
+              data-src="https://images.pexels.com/photos/34784358/pexels-photo-34784358.jpeg?w=800&q=80"
+              alt="Concert stage setup"
+              class="gallery-image lazy-load"
+            />
+            <div class="gallery-overlay">
+              <p class="body-medium">Concert Stage Setup</p>
+            </div>
+          </div>
+
+          <div class="gallery-item animate-on-scroll">
+            <img
+              src="https://images.unsplash.com/photo-1729022191918-a610ce8986d9?w=50&q=10"
+              data-src="https://images.unsplash.com/photo-1729022191918-a610ce8986d9?w=800&q=80"
+              alt="Professional audio mixing console"
+              class="gallery-image lazy-load"
+            />
+            <div class="gallery-overlay">
+              <p class="body-medium">Audio Mixing Console</p>
+            </div>
+          </div>
+
+          <div class="gallery-item animate-on-scroll">
+            <img
+              src="https://images.unsplash.com/photo-1619386113777-f92dd987bfb0?w=50&q=10"
+              data-src="https://images.unsplash.com/photo-1619386113777-f92dd987bfb0?w=800&q=80"
+              alt="Audio mixer with lighting"
+              class="gallery-image lazy-load"
+            />
+            <div class="gallery-overlay">
+              <p class="body-medium">Professional Audio Mixer</p>
+            </div>
+          </div>
+
+          <div class="gallery-item animate-on-scroll">
+            <img
+              src="https://images.pexels.com/photos/2651794/pexels-photo-2651794.jpeg?w=50&q=10"
+              data-src="https://images.pexels.com/photos/2651794/pexels-photo-2651794.jpeg?w=800&q=80"
+              alt="Professional speaker with lighting"
+              class="gallery-image lazy-load"
+            />
+            <div class="gallery-overlay">
+              <p class="body-medium">Stage Speaker System</p>
+            </div>
+          </div>
+
+          <div class="gallery-item animate-on-scroll">
+            <img
+              src="https://images.unsplash.com/photo-1609702847389-b8aec1b0b929?w=50&q=10"
+              data-src="https://images.unsplash.com/photo-1609702847389-b8aec1b0b929?w=800&q=80"
+              alt="Speaker array system"
+              class="gallery-image lazy-load"
+            />
+            <div class="gallery-overlay">
+              <p class="body-medium">Speaker Array System</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer>
-      <p>© 2025 DSX Audio. All rights reserved.</p>
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="section-container">
+        <h2 class="display-large section-title animate-on-scroll">
+          GET IN TOUCH
+        </h2>
+        <p class="body-medium section-subtitle animate-on-scroll">
+          Let's discuss your audio needs
+        </p>
+
+        <div class="contact-content">
+          <div class="contact-info animate-on-scroll">
+            <div class="contact-info-card">
+              <h3 class="heading-3">Email</h3>
+              <p class="body-medium">info@dsxaudio.com</p>
+            </div>
+
+            <div class="contact-info-card">
+              <h3 class="heading-3">Phone</h3>
+              <p class="body-medium">+1 (555) 123-4567</p>
+            </div>
+
+            <div class="contact-info-card">
+              <h3 class="heading-3">Services</h3>
+              <p class="body-small">
+                Professional event sound systems for indoor and outdoor venues.
+                Custom installations available.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3 class="heading-3">DSX AUDIO</h3>
+          <p class="body-small">
+            Professional sound systems for unforgettable events
+          </p>
+        </div>
+        <div class="footer-links">
+          <a href="#home" class="footer-link">Home</a>
+          <a href="#services" class="footer-link">Services</a>
+          <a href="#gallery" class="footer-link">Gallery</a>
+          <a href="#contact" class="footer-link">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="body-small">&copy; 2025 DSX Audio. All rights reserved.</p>
+      </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="/js/main.js"></script>
   </body>
 </html>
