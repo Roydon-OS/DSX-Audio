@@ -1,29 +1,43 @@
-/* ==========================
-   GENERAL STYLES
-========================== */
+/* ---------- GLOBAL RESET ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html,
 body {
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
   margin: 0;
+  padding: 0;
   font-family: Arial, sans-serif;
   background: #0b0b12;
   color: white;
 }
-
 h2 {
   text-align: center;
   margin-top: 60px;
 }
 
-/* ==========================
-   HEADER / NAV
-========================== */
+/* ---------- HEADER / NAVIGATION ---------- */
+:root {
+  --header-h: 70px; /* header height for mobile padding */
+}
+
 .site-header {
   width: 100%;
-  background: #0b0b12;
+  background: rgba(0, 0, 0, 1); /* solid initially */
   padding: 20px 0;
-  position: sticky;
+  position: fixed; /* always fixed */
   top: 0;
-  z-index: 1000;
+  left: 0;
+  z-index: 10000;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  transition: background 0.3s;
+}
+
+.site-header.scrolled {
+  background: rgba(0, 0, 0, 0.8); /* slightly transparent on scroll */
 }
 
 .site-header .container {
@@ -33,6 +47,7 @@ h2 {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .site-header .logo {
@@ -53,19 +68,34 @@ h2 {
   color: #7a3cff;
 }
 
-/* MOBILE NAV TOGGLE */
+/* ==========================
+   MOBILE NAV TOGGLE / BURGER
+========================== */
 .nav-toggle {
-  display: none;
+  display: none; /* only show on mobile */
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px; /* spacing between lines */
+  width: 32px; /* width of burger */
+  height: 28px; /* height for proper tap area */
   cursor: pointer;
-  gap: 5px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  z-index: 10003; /* above nav menu */
 }
+
 .nav-toggle span {
-  width: 25px;
+  display: block;
+  width: 100%;
   height: 3px;
   background: #fff;
-  transition: all 0.3s;
+  border-radius: 2px;
+  transition: all 0.25s ease;
 }
+
 .nav-toggle.active span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
@@ -76,32 +106,75 @@ h2 {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
+/* ==========================
+   MOBILE HEADER AND NAV
+========================== */
 @media (max-width: 768px) {
-  .site-nav {
-    position: absolute;
-    top: 70px;
+  .site-header {
+    position: fixed !important; /* always fixed */
+    top: 0;
+    left: 0;
     right: 0;
+    width: 100%;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    transition: background 0.25s ease;
+    padding: 15px 20px;
+  }
+
+  body {
+    padding-top: var(--header-h); /* prevent content hidden under header */
+    margin: 0;
+  }
+
+  .site-header .container {
+    display: flex;
+    justify-content: space-between; /* logo left, burger right */
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  /* NAV MENU */
+  .site-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
     background: #151525;
-    flex-direction: column;
-    width: 200px;
+    flex-direction: column; /* vertical stack */
+    align-items: center;
+    justify-content: flex-start;
+    width: 220px;
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
-    border-left: 1px solid #7a3cff;
+    padding-top: var(--header-h); /* space for header */
+    box-shadow: -2px 0 15px rgba(0, 0, 0, 0.5);
   }
+
   .site-nav.active {
-    transform: translateX(0);
+    transform: translateX(0); /* slide in */
   }
+
   .site-nav a {
-    margin: 15px 20px;
+    margin: 20px 0; /* vertical spacing */
+    font-size: 1.1rem;
+    display: block; /* stack vertically */
+    text-align: center;
   }
+
+  /* SHOW BURGER */
   .nav-toggle {
     display: flex;
   }
 }
 
-/* ==========================
-   HERO SECTION
-========================== */
+/* ---------- HERO ---------- */
 .hero {
   height: 100vh;
   background: url("images/hero-bg.png") center/cover no-repeat;
@@ -140,9 +213,7 @@ h2 {
   background: #9b63ff;
 }
 
-/* ==========================
-   SERVICES SECTION
-========================== */
+/* ---------- SERVICES ---------- */
 .services {
   padding: 60px 20px;
   background: #151525;
@@ -158,7 +229,6 @@ h2 {
   gap: 20px;
   flex-wrap: wrap;
 }
-
 .service-card {
   position: relative;
   width: 280px;
@@ -171,7 +241,7 @@ h2 {
   flex-direction: column;
   justify-content: space-between;
   padding: 20px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s, opacity 0.6s;
   background-size: cover;
   background-position: center;
   border: 1px solid #7a3cff;
@@ -204,12 +274,6 @@ h2 {
   z-index: 1;
   margin: 0;
 }
-.service-card h3 {
-  font-size: 1.3rem;
-}
-.service-card p {
-  font-size: 1rem;
-}
 .service-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 35px rgba(122, 60, 255, 0.5);
@@ -217,8 +281,8 @@ h2 {
 .service-card.visible {
   opacity: 1;
   transform: translateY(0);
-  transition: 0.6s ease-out;
 }
+
 @media (max-width: 768px) {
   .service-list {
     flex-direction: column;
@@ -230,9 +294,7 @@ h2 {
   }
 }
 
-/* ==========================
-   GALLERY SECTION
-========================== */
+/* ---------- GALLERY ---------- */
 .gallery {
   padding: 60px 20px;
   display: flex;
@@ -256,7 +318,7 @@ h2 {
   margin: 0 auto;
   border: 1px solid #7a3cff;
   border-radius: 12px;
-  transition: 0.3s;
+  transition: 0.6s;
   opacity: 0;
   transform: translateY(40px);
 }
@@ -270,10 +332,6 @@ h2 {
 }
 .carousel img.loaded {
   filter: blur(0);
-}
-.carousel:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 35px rgba(122, 60, 255, 0.5);
 }
 .carousel-btn {
   position: absolute;
@@ -300,18 +358,7 @@ h2 {
   transition: 0.6s ease-out;
 }
 
-.carousel {
-  opacity: 0;
-  transform: translateY(40px);
-}
-.carousel.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ==========================
-   CONTACT SECTION
-========================== */
+/* ---------- CONTACT ---------- */
 .contact {
   padding: 60px 20px;
   background: #151525;
@@ -319,13 +366,11 @@ h2 {
   flex-direction: column;
   align-items: center;
 }
-
 .contact h2 {
   font-size: 2rem;
   margin-bottom: 40px;
   color: white;
 }
-
 .contact-box {
   background: linear-gradient(145deg, #1e1e35, #25254a);
   padding: 30px 40px;
@@ -333,78 +378,64 @@ h2 {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
   border: 1px solid #7a3cff;
   text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s, opacity 0.6s, transform 0.6s;
+  transition: transform 0.3s, box-shadow 0.3s, opacity 0.6s;
   max-width: 400px;
   width: 100%;
-  opacity: 0; /* start hidden */
-  transform: translateY(40px); /* start below */
+  opacity: 0;
+  transform: translateY(40px);
 }
-
 .contact-box:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 35px rgba(122, 60, 255, 0.5);
 }
-
 .contact-box p {
   margin: 15px 0;
   font-size: 1.1rem;
   color: #fff;
 }
-
 .contact-box a {
   color: #7a3cff;
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s;
 }
-
 .contact-box a:hover {
   color: #9b63ff;
 }
-
 .contact-box .btn-primary {
   display: inline-block;
   margin-top: 20px;
   background: #7a3cff;
   padding: 12px 28px;
   border-radius: 6px;
-  text-decoration: none;
   color: white;
   font-weight: bold;
 }
-
 .contact-box .btn-primary:hover {
   background: #9b63ff;
 }
-
 .social-links {
   margin-top: 20px;
   display: flex;
   justify-content: center;
   gap: 15px;
 }
-
 .social-links a {
   color: #7a3cff;
   font-size: 1.5rem;
   transition: color 0.3s, transform 0.3s;
 }
-
 .social-links a:hover {
   color: #9b63ff;
   transform: translateY(-3px);
 }
-
-/* Visible state for scroll animation */
 .contact-box.visible {
   opacity: 1;
   transform: translateY(0);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-/* ==========================
-   FOOTER
-========================== */
+/* ---------- FOOTER ---------- */
 footer {
   padding: 20px;
   text-align: center;

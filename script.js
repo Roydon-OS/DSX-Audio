@@ -1,6 +1,40 @@
-/* ==========================
-   1. GALLERY CAROUSEL
-========================== */
+/* -------------------------
+   MOBILE NAV TOGGLE
+-------------------------- */
+(() => {
+  const navToggle = document.querySelector(".nav-toggle");
+  const siteNav = document.querySelector(".site-nav");
+
+  navToggle.addEventListener("click", () => {
+    const open = siteNav.classList.toggle("active");
+    navToggle.classList.toggle("active");
+    navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+
+  document.querySelectorAll(".site-nav a").forEach((link) => {
+    link.addEventListener("click", () => {
+      siteNav.classList.remove("active");
+      navToggle.classList.remove("active");
+      navToggle.setAttribute("aria-expanded", "false");
+    });
+  });
+})();
+
+/* -------------------------
+   HEADER SCROLL EFFECT
+-------------------------- */
+(() => {
+  const header = document.querySelector(".site-header");
+  const THRESH = 40;
+  const updateScroll = () =>
+    header.classList.toggle("scrolled", window.scrollY > THRESH);
+  window.addEventListener("scroll", updateScroll, { passive: true });
+  updateScroll(); // initial state
+})();
+
+/* -------------------------
+   GALLERY CAROUSEL
+-------------------------- */
 const imageList = [
   "our-work/image1.jpg",
   "our-work/image2.jpg",
@@ -11,10 +45,8 @@ const imageList = [
   "our-work/image7.jpg",
   "our-work/image8.jpg",
 ];
-
 let currentIndex = 0;
 const img = document.getElementById("carousel-image");
-
 function updateCarousel() {
   img.classList.remove("loaded");
   img.src =
@@ -26,7 +58,6 @@ function updateCarousel() {
     img.classList.add("loaded");
   };
 }
-
 document.getElementById("next").addEventListener("click", () => {
   currentIndex = (currentIndex + 1) % imageList.length;
   updateCarousel();
@@ -37,25 +68,9 @@ document.getElementById("prev").addEventListener("click", () => {
 });
 updateCarousel();
 
-/* ==========================
-   2. MOBILE NAV TOGGLE
-========================== */
-const navToggle = document.querySelector(".nav-toggle");
-const siteNav = document.querySelector(".site-nav");
-navToggle.addEventListener("click", () => {
-  siteNav.classList.toggle("active");
-  navToggle.classList.toggle("active");
-});
-document.querySelectorAll(".site-nav a").forEach((link) => {
-  link.addEventListener("click", () => {
-    siteNav.classList.remove("active");
-    navToggle.classList.remove("active");
-  });
-});
-
-/* ==========================
-   3. SERVICES SCROLL ANIMATION
-========================== */
+/* -------------------------
+   SERVICES SCROLL ANIMATION
+-------------------------- */
 const serviceCards = document.querySelectorAll(".service-card");
 const serviceObserver = new IntersectionObserver(
   (entries) => {
@@ -70,30 +85,27 @@ const serviceObserver = new IntersectionObserver(
 );
 serviceCards.forEach((card) => serviceObserver.observe(card));
 
-/* ==========================
-   4. GALLERY SCROLL ANIMATION
-========================== */
+/* -------------------------
+   GALLERY SCROLL ANIMATION
+-------------------------- */
 const carousel = document.querySelector(".carousel");
-
-const galleryObserver = new IntersectionObserver(
-  (entries, observer) => {
+const carouselObserver = new IntersectionObserver(
+  (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
+        carouselObserver.unobserve(entry.target);
       }
     });
   },
   { threshold: 0.2 }
 );
+carouselObserver.observe(carousel);
 
-galleryObserver.observe(carousel);
-
-/* ==========================
+/* -------------------------
    CONTACT BOX SCROLL ANIMATION
-========================== */
+-------------------------- */
 const contactBox = document.querySelector(".contact-box");
-
 const contactObserver = new IntersectionObserver(
   (entries, observer) => {
     entries.forEach((entry) => {
@@ -105,5 +117,4 @@ const contactObserver = new IntersectionObserver(
   },
   { threshold: 0.2 }
 );
-
 contactObserver.observe(contactBox);

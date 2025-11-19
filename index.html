@@ -10,24 +10,29 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
     <link rel="icon" href="images/DSX-Fav.png" type="image/png" />
-    <link rel="shortcut icon" href="images/DSX-Fav.png" type="image/png" />
   </head>
   <body>
     <!-- HEADER / NAVIGATION -->
-    <header class="site-header">
+    <header class="site-header" role="banner">
       <div class="container">
         <div class="logo">DSX Audio</div>
-        <nav class="site-nav">
+
+        <nav class="site-nav" role="navigation" aria-label="Main Navigation">
           <a href="#hero">Home</a>
           <a href="#services">Services</a>
           <a href="#gallery">Our Work</a>
           <a href="#contact">Contact</a>
         </nav>
-        <div class="nav-toggle">
+
+        <button
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-label="Toggle menu"
+        >
           <span></span>
           <span></span>
           <span></span>
-        </div>
+        </button>
       </div>
     </header>
 
@@ -46,7 +51,6 @@
     <!-- SERVICES SECTION -->
     <section class="services" id="services">
       <h2>Our Services</h2>
-
       <div class="service-list">
         <div class="service-card" id="service1">
           <h3>Event Sound Systems</h3>
@@ -95,7 +99,6 @@
           >Send a Message</a
         >
 
-        <!-- Social Media Links -->
         <div class="social-links">
           <a href="https://www.facebook.com/cain.duyts" target="_blank"
             ><i class="fab fa-facebook-f"></i
@@ -115,7 +118,6 @@
       </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
       <p>© 2025 DSX Audio. All rights reserved.</p>
     </footer>
